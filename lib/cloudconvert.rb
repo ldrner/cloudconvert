@@ -12,6 +12,10 @@ module Cloudconvert
     end
 
     def connection
+<<<<<<< HEAD
+=======
+      # Cloudconvert::Connection.new(apikey: 'LzmNBhVWT3S7xtDNyMwqbn7kuPmdwK2nCdK9PuQdPpIugEOLw4VY1lUBuFOmjamK')
+>>>>>>> 84c23fbe7696587d9e10956e4090b44bf2d518bc
       @@connection ||= Cloudconvert::Connection.new(configuration.to_h)
     end
 
