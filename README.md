@@ -2,8 +2,8 @@
 
 [![Build Status](https://travis-ci.org/ldrner/cloudconvert.svg?branch=master)](https://travis-ci.org/ldrner/cloudconvert)
 
-CloudConvert File Conversions API wrapper
-[https://cloudconvert.com/api/conversions](https://cloudconvert.com/api/conversions)
+CloudConvert convert API wrapper
+[https://cloudconvert.com/api/conversions#convert](https://cloudconvert.com/api/conversions#convert)
 
 # Configuration
 ``` ruby
