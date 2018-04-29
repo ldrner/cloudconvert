@@ -4,6 +4,7 @@ PATH
     cloudconvert (0.1.0)
       dry-initializer
       http
+      http-form_data
 
 GEM
   remote: https://rubygems.org/
