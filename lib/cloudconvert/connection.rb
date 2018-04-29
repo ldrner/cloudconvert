@@ -10,11 +10,12 @@ module Cloudconvert
     option :apikey
 
     def post(path, params = {})
-      HTTP.basic_auth(:user => apikey).post(url(path), params)
+      HTTP.follow(max_hops: 1)
+          .post(url(path), form: params.merge(apikey: apikey))
     end
 
     def get(path, params = {})
-      HTTP.basic_auth(:user => apikey).get(url(path), params)
+      HTTP.get(path, params)
     end
 
     private
