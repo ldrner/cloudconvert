@@ -9,8 +9,8 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Ilia Kriachkov"]
   spec.email         = ["ilia.kriachkov@jetrockets.ru"]
 
-  spec.summary       = %q{CloudConvert File Conversions API wrapper.}
-  spec.description   = %q{CloudConvert File Conversions API wrapper. https://cloudconvert.com/api/conversions}
+  spec.summary       = %q{CloudConvert The convert API wrapper.}
+  spec.description   = %q{CloudConvert The convert API wrapper. https://cloudconvert.com/api/conversions#convert}
   spec.homepage      = "https://github.com/ldrner/cloudconvert"
   spec.license       = "MIT"
 
