@@ -2,7 +2,6 @@ PATH
   remote: .
   specs:
     cloudconvert (0.1.0)
-      dry-initializer
       http
       http-form_data
 
@@ -17,7 +16,6 @@ GEM
     diff-lcs (1.3)
     domain_name (0.5.20180417)
       unf (>= 0.0.5, < 1.0.0)
-    dry-initializer (2.4.0)
     hashdiff (0.3.7)
     http (3.3.0)
       addressable (~> 2.3)

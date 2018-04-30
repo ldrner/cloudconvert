@@ -1,4 +1,3 @@
-require 'dry-initializer'
 require 'http/form_data'
 require 'cloudconvert/helper'
 

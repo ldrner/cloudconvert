@@ -1,13 +1,7 @@
-require 'dry-initializer'
 require 'http'
 
 module Cloudconvert
   class Connection
-    # extend Dry::Initializer
-    # attr_reader :apikey
-    # private :apikey
-    # option :apikey
-
     BASE_PATH = 'https://api.cloudconvert.com/'.freeze
 
     def initialize(opts)
