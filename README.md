@@ -12,7 +12,7 @@ Simple wrapper for CloudConvert The convert API
 ## Usage
 
 ### Convert
-The 'convert' method returns full response of the cloudconvert API
+The 'convert' method returns full response of the cloudconvert API as Ruby Hash
 ``` ruby
   client.convert('path_to_file')
   =>  {
@@ -26,7 +26,7 @@ The 'convert' method returns full response of the cloudconvert API
 ```
 
 ### Status
-The 'status' method returns full response of the cloudconvert API
+The 'status' method returns full response of the cloudconvert API as Ruby Hash
 ``` ruby
   client.status("https://{cloudconvert_process_url}")
   => {
