@@ -12,9 +12,21 @@ Simple wrapper for CloudConvert The convert API
 ## Usage
 
 ### Convert
+
+For remote file url:
+``` ruby
+  client.convert('your_remote_file_url', {input: 'download', inputformat: 'remote_file_format'})
+```
+
+For local file path:
+``` ruby
+  client.convert('your_file_path', {input: 'upload', inputformat: 'file_format'})
+```
+
+:input & :inputformat - params required by Cloudconvert API
+
 The 'convert' method returns full response of the cloudconvert API as Ruby Hash
 ``` ruby
-  client.convert('path_to_file')
   =>  {
         :id=>"SUVHDcKab3T6wAELYqyu",
         :url=>"//host1ibn9yl.cloudconvert.com/process/SUVHDcKab3T6wAELYqyu",

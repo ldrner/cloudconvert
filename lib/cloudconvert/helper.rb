@@ -1,7 +1,8 @@
 module Cloudconvert
   module Helper
-    def file_extension(filename)
-      File.extname(filename).delete('.')
+    def validate_keys(hash, *required_keys)
+      received_keys = [required_keys].flatten - hash.keys
+      raise(ArgumentError, "Required key(s): #{received_keys.join(", ")}") unless received_keys.empty?
     end
   end
 end

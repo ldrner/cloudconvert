@@ -15,16 +15,24 @@ module Cloudconvert
         @response_parser_class = response_parser_class
       end
 
-      def convert(file_path)
-        form_data_file = HTTP::FormData::File.new(file_path)
-        form_data = {
-          inputformat: file_extension(form_data_file.filename),
+      def convert(file_location, options = {})
+        validate_keys(options, :input, :inputformat)
+        file_data = case options[:input].to_sym
+        when :download
+          file_location.to_s
+        when :upload
+          HTTP::FormData::File.new(file_location)
+        else
+          nil
+        end
+
+        form_data = ({
           outputformat: "pdf",
-          input: "upload",
           wait: false,
           download: false,
-          file: form_data_file
-        }
+          file: file_data
+        }).merge!(options)
+
 
         response = connection.post(CONVERT_PATH, form_data)
         # response = OpenStruct.new({
