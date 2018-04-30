@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    cloudconvert (0.1.0)
+    cloudconvert (0.1.1)
       http
       http-form_data
 
