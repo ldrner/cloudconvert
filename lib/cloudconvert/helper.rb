@@ -6,5 +6,9 @@ module Cloudconvert
       uri.scheme = 'https' if uri.scheme.nil? || uri.scheme.empty?
       uri.to_s
     end
+
+    def file_extension(filename)
+      File.extname(filename).delete('.')
+    end
   end
 end

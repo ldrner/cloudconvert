@@ -3,11 +3,16 @@ require 'http'
 
 module Cloudconvert
   class Connection
-    extend Dry::Initializer
+    # extend Dry::Initializer
+    # attr_reader :apikey
+    # private :apikey
+    # option :apikey
 
     BASE_PATH = 'https://api.cloudconvert.com/'.freeze
 
-    option :apikey
+    def initialize(opts)
+      @apikey = opts[:apikey]
+    end
 
     def post(path, params = {})
       HTTP.follow(max_hops: 1)
@@ -19,6 +24,10 @@ module Cloudconvert
     end
 
     private
+
+    def apikey
+      @apikey
+    end
 
     def url(path)
       URI.join(BASE_PATH, path)

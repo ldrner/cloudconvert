@@ -11,14 +11,6 @@ module Cloudconvert
       yield configuration
     end
 
-    def connection
-      @@connection ||= Cloudconvert::Connection.new(configuration.to_h)
-    end
-
-    def response_parser
-      Cloudconvert::ResponseParser
-    end
-
     def convert(file_path)
       Cloudconvert::Api::Resource.new(connection, response_parser).convert(file_path)
     end
@@ -28,6 +20,13 @@ module Cloudconvert
     end
 
     private
+    def connection
+      @@connection ||= Cloudconvert::Connection.new(configuration.to_h)
+    end
+
+    def response_parser
+      Cloudconvert::ResponseParser
+    end
 
     def configuration
       @@configuration ||= ::OpenStruct.new
