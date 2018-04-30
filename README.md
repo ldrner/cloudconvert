@@ -12,14 +12,31 @@ Simple wrapper for CloudConvert The convert API
 ## Usage
 
 ### Convert
+The 'convert' method returns full response of the cloudconvert API
 ``` ruby
   client.convert('path_to_file')
-  => "https://{cloudconvert_process_url}"
+  =>  {
+        :id=>"SUVHDcKab3T6wAELYqyu",
+        :url=>"//host1ibn9yl.cloudconvert.com/process/SUVHDcKab3T6wAELYqyu",
+        :expire=>1525091552,
+        :percent=>0,
+        :message=>"Converting file to pdf",
+        ...
+      }
 ```
+
 ### Status
+The 'status' method returns full response of the cloudconvert API
 ``` ruby
   client.status("https://{cloudconvert_process_url}")
-  => ["cloudconvert_process_status", "https://{file_download_url}"]
+  => {
+      :id=>"SUVHDcKab3T6wAELYqyu",
+      :url=>"//host1ibn9yl.cloudconvert.com/process/SUVHDcKab3T6wAELYqyu",
+      :expire=>1525134033,
+      :percent=>100,
+      :message=>"Conversion finished!",
+      ...
+    }
 ```
 ## Exception Handling
 

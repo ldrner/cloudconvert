@@ -14,7 +14,6 @@ module Cloudconvert
     end
 
     def post(path, params = {})
-      puts 'params: ', params.merge(apikey: apikey)
       HTTP.follow(max_hops: 1)
           .post(url(path), form: params.merge(apikey: apikey))
     end
