@@ -3,7 +3,7 @@ require 'cloudconvert/helper'
 
 module Cloudconvert
   module Api
-    class Resource
+    class Client
       include Cloudconvert::Helper
       CONVERT_PATH = 'convert'.freeze
 

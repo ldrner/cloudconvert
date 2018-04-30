@@ -1,5 +1,5 @@
 module Cloudconvert
-  class Error < StandardError
+  class CloudconvertError < StandardError
     attr_reader :code
 
     def initialize(message, code)
@@ -11,4 +11,8 @@ module Cloudconvert
       super + " [#{@code}]"
     end
   end
+
+  class APIError < CloudconvertError; end
+
+  class AuthenticationError < StandardError; end
 end

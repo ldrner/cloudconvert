@@ -1,14 +1,20 @@
 require 'http'
+require 'cloudconvert/errors'
+require 'ostruct'
 
 module Cloudconvert
   class Connection
     BASE_PATH = 'https://api.cloudconvert.com/'.freeze
 
-    def initialize(opts)
-      @apikey = opts[:apikey]
+    attr_reader :apikey
+
+    def initialize(options = {})
+      @apikey = OpenStruct.new(options)[:apikey]
+      raise AuthenticationError, "No API key provided." unless apikey
     end
 
     def post(path, params = {})
+      puts 'params: ', params.merge(apikey: apikey)
       HTTP.follow(max_hops: 1)
           .post(url(path), form: params.merge(apikey: apikey))
     end
@@ -18,10 +24,6 @@ module Cloudconvert
     end
 
     private
-
-    def apikey
-      @apikey
-    end
 
     def url(path)
       URI.join(BASE_PATH, path)
