@@ -20,4 +20,33 @@ RSpec.describe Cloudconvert::Utilities do
       expect(utils.deep_symbolize_keys(@regular_hash)).to eq(@symbolized_hash)
     end
   end
+
+  describe 'validate_keys' do
+    it 'should raise' do
+      expect do
+        utils.validate_keys({ :foo => 'foo', :bar => 'jpg' }, [:input, :inputformat])
+        utils.validate_keys({ :foo => 'foo', :bar => 'jpg' }, :input, :inputformat)
+      end.to raise_error(ArgumentError, 'Required key(s): input, inputformat')
+    end
+
+    it 'should not raise' do
+      expect do
+        utils.validate_keys({ :input => 'foo', :inputformat => 'jpg' }, [:input, :inputformat])
+        utils.validate_keys({ :input => 'foo', :inputformat => 'jpg' }, :input, :inputformat)
+      end.not_to raise_error
+    end
+  end
+
+  describe 'revise_url' do
+    before do
+      @url = '//host123d1w3.cloudconvert.com/download/~yvcx6DqdfCQOIZFemYJG6w5QngQ'
+      @revised_url = 'https://host123d1w3.cloudconvert.com/download/~yvcx6DqdfCQOIZFemYJG6w5QngQ'
+    end
+    it 'should add scheme to url' do
+      expect(utils.revise_url(@url)).to eq(@revised_url)
+    end
+    it 'should return nil if url blank' do
+      expect(utils.revise_url('')).to eq(nil)
+    end
+  end
 end
