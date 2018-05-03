@@ -1,6 +1,5 @@
 require 'http/form_data'
 require 'cloudconvert/helper'
-# require 'ostruct'
 
 module Cloudconvert
   module Api
@@ -39,9 +38,7 @@ module Cloudconvert
         #   body: "{\"id\":\"cUMQTReC8BJf0PmnNkW6\",\"url\":\"//host123d1w1.cloudconvert.com/process/cUMQTReC8BJf0PmnNkW6\",\"expire\":1524947740,\"percent\":0,\"message\":\"Converting file to pdf\",\"step\":\"convert\",\"starttime\":1524946600,\"output\":{\"url\":\"//host123d1w1.cloudconvert.com/download/~-PU7_yufcQ1HLZpd0IRh9iIJhAs\"},\"input\":{\"filename\":\"2018-04-10_14-52-33.png\",\"name\":\"2018-04-10_14-52-33\",\"ext\":\"png\"},\"converter\":{\"mode\":\"convert\",\"format\":\"pdf\",\"type\":\"imagemagick\",\"options\":{\"resize\":null,\"resizemode\":\"maximum\",\"resizeenlarge\":null,\"rotate\":null,\"grayscale\":null,\"strip_metatags\":null,\"density\":null,\"auto_orient\":null,\"command\":null}},\"group\":\"image\"}",
         #   code: 200
         # })
-        struct = response_parser_class.parse(response)
-
-        struct.to_h
+        response_parser_class.parse(response)
       end
 
       def status(process_url)
@@ -51,9 +48,7 @@ module Cloudconvert
         #   code: 200
         # })
 
-        struct = response_parser_class.parse(response)
-
-        struct.to_h
+        response_parser_class.parse(response)
       end
 
     end

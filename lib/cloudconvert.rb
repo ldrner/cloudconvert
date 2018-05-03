@@ -2,6 +2,7 @@ require "cloudconvert/api/client"
 require "cloudconvert/version"
 require "cloudconvert/connection"
 require "cloudconvert/response_parser"
+require "cloudconvert/lib/deep_symbolize"
 
 module Cloudconvert
   class << self

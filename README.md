@@ -23,33 +23,24 @@ For local file path:
   client.convert('your_file_path', {input: 'upload', inputformat: 'file_format'})
 ```
 
-:input & :inputformat - params required by Cloudconvert API
+`:input` & `:inputformat` - params required by Cloudconvert API
 
-The 'convert' method returns full response of the cloudconvert API as Ruby Hash
+The `#convert` method returns `Cloudconvert::Api::Response` object
 ``` ruby
-  =>  {
-        :id=>"SUVHDcKab3T6wAELYqyu",
-        :url=>"//host1ibn9yl.cloudconvert.com/process/SUVHDcKab3T6wAELYqyu",
-        :expire=>1525091552,
-        :percent=>0,
-        :message=>"Converting file to pdf",
-        ...
-      }
+  => #<Cloudconvert::Api::Response:0x007fd45be450c0
+    @output_url="https://host123d1w1.cloudconvert.com/download/~otIQ4ymiJAZIDKoOuYBK2V8hsXg",
+    @process_url="https://host123d1w1.cloudconvert.com/process/9rfMVo0H7cz5YTFA3CbE",
+    @step="input">
 ```
 
 ### Status
-The 'status' method returns full response of the cloudconvert API as Ruby Hash
+To get process status use:
+
 ``` ruby
   client.status("https://{cloudconvert_process_url}")
-  => {
-      :id=>"SUVHDcKab3T6wAELYqyu",
-      :url=>"//host1ibn9yl.cloudconvert.com/process/SUVHDcKab3T6wAELYqyu",
-      :expire=>1525134033,
-      :percent=>100,
-      :message=>"Conversion finished!",
-      ...
-    }
 ```
+Like `#convert`, the `#status` method returns `Cloudconvert::Api::Response` object.
+
 ## Exception Handling
 
 If Cloudconvert will return anything different from 200 OK status code, `Cloudconvert::APIError` will be raised. It contains `#message` and `#code` returned from API.
@@ -58,7 +49,7 @@ For example with invalid credentials you will receive:
 
 ``` ruby
   client.status("https://{invalid_cloudconvert_process_url}")
-  #=> Cloudconvert::APIError: Process not found [404]
+  => Cloudconvert::APIError: Process not found [404]
 ```
 ## License
 
