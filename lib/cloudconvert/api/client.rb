@@ -1,10 +1,8 @@
 require 'http/form_data'
-require 'cloudconvert/helper'
 
 module Cloudconvert
   module Api
     class Client
-      include Cloudconvert::Helper
       CONVERT_PATH = 'convert'.freeze
 
       attr_reader :connection, :response_parser_class
@@ -15,7 +13,7 @@ module Cloudconvert
       end
 
       def convert(file_location, options = {})
-        validate_keys(options, :input, :inputformat)
+        Cloudconvert::Utilities.validate_keys(options, :input, :inputformat)
         file_data = case options[:input].to_sym
         when :download
           file_location.to_s
