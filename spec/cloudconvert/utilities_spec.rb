@@ -29,7 +29,7 @@ RSpec.describe Cloudconvert::Utilities do
       end.to raise_error(ArgumentError, 'Required key(s): input, inputformat')
     end
 
-    it 'should not raise' do
+    it 'does not raise' do
       expect do
         utils.validate_keys({ :input => 'foo', :inputformat => 'jpg' }, [:input, :inputformat])
         utils.validate_keys({ :input => 'foo', :inputformat => 'jpg' }, :input, :inputformat)
@@ -46,7 +46,7 @@ RSpec.describe Cloudconvert::Utilities do
       expect(utils.revise_url(@url)).to eq(@revised_url)
     end
     it 'should return nil if url blank' do
-      expect(utils.revise_url('')).to eq(nil)
+      expect(utils.revise_url('')).to be_nil
     end
   end
 end

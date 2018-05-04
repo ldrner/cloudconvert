@@ -1,21 +1,30 @@
 PATH
   remote: .
   specs:
-    cloudconvert (0.1.1)
+    cloudconvert (0.1.2)
       http
       http-form_data
 
 GEM
   remote: https://rubygems.org/
   specs:
+    activesupport (5.2.0)
+      concurrent-ruby (~> 1.0, >= 1.0.2)
+      i18n (>= 0.7, < 2)
+      minitest (~> 5.1)
+      tzinfo (~> 1.1)
     addressable (2.5.2)
       public_suffix (>= 2.0.2, < 4.0)
     coderay (1.1.2)
+    concurrent-ruby (1.0.5)
     crack (0.4.3)
       safe_yaml (~> 1.0.0)
     diff-lcs (1.3)
+    docile (1.3.0)
     domain_name (0.5.20180417)
       unf (>= 0.0.5, < 1.0.0)
+    factory_bot (4.8.2)
+      activesupport (>= 3.0.0)
     hashdiff (0.3.7)
     http (3.3.0)
       addressable (~> 2.3)
@@ -26,7 +35,11 @@ GEM
       domain_name (~> 0.5)
     http-form_data (2.1.0)
     http_parser.rb (0.6.0)
+    i18n (1.0.1)
+      concurrent-ruby (~> 1.0)
+    json (2.1.0)
     method_source (0.9.0)
+    minitest (5.11.3)
     pry (0.11.3)
       coderay (~> 1.1.0)
       method_source (~> 0.9.0)
@@ -46,6 +59,14 @@ GEM
       rspec-support (~> 3.7.0)
     rspec-support (3.7.1)
     safe_yaml (1.0.4)
+    simplecov (0.16.1)
+      docile (~> 1.1)
+      json (>= 1.8, < 3)
+      simplecov-html (~> 0.10.0)
+    simplecov-html (0.10.2)
+    thread_safe (0.3.6)
+    tzinfo (1.2.5)
+      thread_safe (~> 0.1)
     unf (0.1.4)
       unf_ext
     unf_ext (0.0.7.5)
@@ -60,9 +81,11 @@ PLATFORMS
 DEPENDENCIES
   bundler (~> 1.16)
   cloudconvert!
+  factory_bot
   pry
   rake (~> 10.0)
   rspec (~> 3.0)
+  simplecov
   webmock
 
 BUNDLED WITH
