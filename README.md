@@ -1,6 +1,7 @@
 # cloudconvert
-
 [![Build Status](https://travis-ci.org/ldrner/cloudconvert.svg?branch=master)](https://travis-ci.org/ldrner/cloudconvert)
+[![Maintainability](https://api.codeclimate.com/v1/badges/d402008317c8f6cc6715/maintainability)](https://codeclimate.com/github/ldrner/cloudconvert/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/d402008317c8f6cc6715/test_coverage)](https://codeclimate.com/github/ldrner/cloudconvert/test_coverage)
 
 Simple wrapper for CloudConvert The convert API
 [https://cloudconvert.com/api/conversions#convert](https://cloudconvert.com/api/conversions#convert)
