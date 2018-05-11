@@ -5,24 +5,24 @@ module Cloudconvert
     module ClientStubs
 
       def unstub!
-        self.define_singleton_method(:convert) { original_convert }
-        self.define_singleton_method(:status) { original_status }
+        self.define_singleton_method(:convert) { |*args| original_convert(*args) }
+        self.define_singleton_method(:status) { |*args| original_status(*args) }
       end
 
       def stub_convert_with_success!
-        self.define_singleton_method(:convert) { stub_convert_with_success }
+        self.define_singleton_method(:convert) { |*args| stub_convert_with_success(args) }
       end
 
       def stub_status_with_success!
-        self.define_singleton_method(:status) { stub_status_with_success }
+        self.define_singleton_method(:status) { |*args| stub_status_with_success(args) }
       end
 
       def stub_convert_with_failure!
-        self.define_singleton_method(:convert) { stub_convert_with_failure }
+        self.define_singleton_method(:convert) { |*args| stub_convert_with_failure(args) }
       end
 
       def stub_status_with_failure!
-        self.define_singleton_method(:status) { stub_status_with_failure }
+        self.define_singleton_method(:status) { |*args| stub_status_with_failure(args) }
       end
 
       private
