@@ -20,10 +20,10 @@ RSpec.describe Cloudconvert::Api::Response do
     let(:not_finished_response) { Cloudconvert::Api::Response.new(step: "input") }
     let(:finished_response) { Cloudconvert::Api::Response.new(step: "finished") }
     it 'is true if  step == finished' do
-      expect(finished_response.finished?).to be true
+      expect(finished_response).to be_finished
     end
     it 'is false if  step != finished' do
-      expect(not_finished_response.finished?).to be false
+      expect(not_finished_response).not_to be_finished
     end
   end
 end

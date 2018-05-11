@@ -1,7 +1,4 @@
 RSpec.describe Cloudconvert do
-  # let(:connection) { Cloudconvert::Connection.new(CONFIGURATION) }
-  # let(:parser) { Cloudconvert::ResponseParser }
-  # let(:cloudconvert_client) { Cloudconvert::Api::Client.new(connection, parser) }
   let(:client) { Cloudconvert.client(CONFIGURATION) }
 
   it "has a version number" do
@@ -9,7 +6,7 @@ RSpec.describe Cloudconvert do
   end
 
   describe '#client' do
-    it 'should respond to client api' do
+    it 'should respond to client api methods' do
       expect(client).to respond_to(:convert)
       expect(client).to respond_to(:status)
     end
