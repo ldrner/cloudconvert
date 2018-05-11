@@ -50,6 +50,8 @@ For example with invalid credentials you will receive:
 ## Testing
 To avoid api calls during testing, use client stub:
 ``` ruby
+  require 'cloudconvert/api/client_stubs'
+  client.enable_stubs!
   client.stub_convert_with_success!
 ```
 

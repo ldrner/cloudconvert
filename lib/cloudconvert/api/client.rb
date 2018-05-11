@@ -1,10 +1,10 @@
 require 'http/form_data'
-require_relative 'client_stubs'
+require_relative 'mixin'
 
 module Cloudconvert
   module Api
     class Client
-      include Cloudconvert::Api::ClientStubs
+      include Cloudconvert::Api::Mixin
 
       CONVERT_PATH = 'convert'.freeze
 
