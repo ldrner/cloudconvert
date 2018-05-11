@@ -14,17 +14,11 @@ Simple wrapper for CloudConvert The convert API
 
 ### Convert
 
-For remote file:
+For remote or local file:
 ``` ruby
-  client.convert('your_remote_file_url', {input: 'download', inputformat: 'remote_file_format'})
+  client.convert(file_location, file_format, options = {})
 ```
-
-For local file:
-``` ruby
-  client.convert('your_file_path', {input: 'upload', inputformat: 'file_format'})
-```
-
-`:input` & `:inputformat` - parameters required by the convert API
+pass in `:options` additional parameters of the convert API
 
 The `#convert` method returns `Cloudconvert::Api::Response` object
 ``` ruby
