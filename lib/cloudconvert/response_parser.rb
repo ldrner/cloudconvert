@@ -7,7 +7,7 @@ module Cloudconvert
     def self.parse(response)
       response_hash = Cloudconvert::Utilities.deep_symbolize_keys(JSON.parse(response.body.to_s))
 
-      raise Cloudconvert::APIError.new(response_hash[:error], response_hash[:code]) if response.code != 200
+      raise Cloudconvert::APIError.new(response_hash[:error] || response_hash[:message], response_hash[:code]) if response.code != 200
 
       Cloudconvert::Api::Response.new(response_hash)
     end
