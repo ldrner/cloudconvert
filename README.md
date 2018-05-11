@@ -46,6 +46,31 @@ For example with invalid credentials you will receive:
   client.status("https://{invalid_cloudconvert_process_url}")
   => Cloudconvert::APIError: Process not found [404]
 ```
+
+## Testing
+To avoid api calls during testing, use client stub:
+``` ruby
+  client.stub_convert_with_success!
+  ### called #stub_convert_with_success with argsuments:  ###
+  => #<Cloudconvert::Api::Response:0x007ff9ea41df20
+  @output_url="https://host123d1w1.cloudconvert.com/download/~-PU7_yufcQ1HLZpd0IRh9iIJhAs",
+  @process_url="https://host123d1w1.cloudconvert.com/process/cUMQTReC8BJf0PmnNkW6",
+  @step="convert">
+```
+
+To unstub client use:
+``` ruby
+  client.unstub!
+```
+
+Next stubs are implemented:
+``` ruby
+  stub_convert_with_success!
+  stub_convert_with_failure!
+  stub_status_with_failure!
+  stub_status_with_success!
+```
+
 ## License
 
 The gem is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
