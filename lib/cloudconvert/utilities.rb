@@ -6,6 +6,12 @@ module Cloudconvert
     end
     module_function :validate_keys
 
+    def is_url?(location)
+      return false unless location.respond_to? :match
+      !!location.match(%r[^https?://])
+    end
+    module_function :is_url?
+
     def revise_url(url)
       return if url.nil? || url.empty?
       uri = URI.parse(url)
