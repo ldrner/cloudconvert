@@ -30,12 +30,14 @@ module Cloudconvert
 
         response_parser_class.parse(response)
       end
+      alias_method :original_convert, :convert
 
       def status(process_url)
         response = connection.get(process_url)
 
         response_parser_class.parse(response)
       end
+      alias_method :original_status, :status
 
     end
   end

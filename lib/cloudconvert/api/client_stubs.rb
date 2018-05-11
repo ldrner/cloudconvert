@@ -4,10 +4,31 @@ module Cloudconvert
   module Api
     module ClientStubs
       def self.included(base)
-        base.extend ClassMethods if defined?(RSpec)
+        base.include ClassMethods if defined?(RSpec)
       end
 
       module ClassMethods
+        def unstub!
+          self.define_singleton_method(:convert) { original_convert }
+          self.define_singleton_method(:status) { original_status }
+        end
+
+        def stub_convert_with_success!
+          self.define_singleton_method(:convert) { stub_convert_with_success }
+        end
+
+        def stub_status_with_success!
+          self.define_singleton_method(:status) { stub_status_with_success }
+        end
+
+        def stub_convert_with_failure!
+          self.define_singleton_method(:convert) { stub_convert_with_failure }
+        end
+
+        def stub_status_with_failure!
+          self.define_singleton_method(:status) { stub_status_with_failure }
+        end
+
         def stub_convert_with_failure(*args)
           puts "### called #stub_convert_with_failure with argsuments: #{args.join(', ')} ###"
           response = OpenStruct.new({
