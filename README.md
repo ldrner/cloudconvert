@@ -51,6 +51,11 @@ For example with invalid credentials you will receive:
 To avoid api calls during testing, use client stub:
 ``` ruby
   client.stub_convert_with_success!
+```
+
+All the following `client.convert` calls will be responds with stub data.
+``` ruby
+  client.status()
   ### called #stub_convert_with_success with argsuments:  ###
   => #<Cloudconvert::Api::Response:0x007ff9ea41df20
   @output_url="https://host123d1w1.cloudconvert.com/download/~-PU7_yufcQ1HLZpd0IRh9iIJhAs",
