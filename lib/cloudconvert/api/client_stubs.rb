@@ -4,7 +4,9 @@ module Cloudconvert
   module Api
     module ClientStubs
       def self.included(base)
-        base.include ClassMethods if defined?(RSpec)
+        base.include ClassMethods
+        # if defined?(RSpec)
+        #TODO optional loading
       end
 
       module ClassMethods
